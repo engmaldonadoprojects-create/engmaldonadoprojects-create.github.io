@@ -3,55 +3,104 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marcos Maldonado | Asesoría Industrial</title>
+<title>Marcos Maldonado | Asesoría Industrial Estratégica</title>
 
 <style>
+
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
     background-color: white;
     color: #333;
 }
 
+/* ====== NAVBAR ====== */
+nav {
+    position: fixed;
+    width: 100%;
+    background: #0f172a;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #3b82f6;
+}
+
+/* ====== HEADER ====== */
 header {
     position: relative;
     background: url('BANNER.jpg') no-repeat center center;
     background-size: cover;
-    height: 500px;
-
+    height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: white;
+    padding: 0 20px;
 }
 
 header::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.35);
 }
-    
+
+header h1, header p, .btn {
+    position: relative;
+    z-index: 2;
+}
+
 header h1 {
-    position: relative;
-    z-index: 2;
+    font-size: 48px;
+    margin-bottom: 10px;
 }
-    
+
 header p {
-    position: relative;
-    z-index: 2;
+    font-size: 20px;
+    margin-bottom: 25px;
 }
 
+/* ====== BOTÓN ====== */
 .btn {
-    position: relative;
-    z-index: 2;
+    background-color: #2563eb;
+    color: white;
+    padding: 14px 30px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
+.btn:hover {
+    background-color: #1e40af;
+}
+
+/* ====== SECCIONES ====== */
 section {
-    padding: 60px 20px;
-    max-width: 1000px;
+    padding: 80px 20px;
+    max-width: 1100px;
     margin: auto;
 }
 
@@ -59,53 +108,81 @@ h2 {
     text-align: center;
     margin-bottom: 40px;
     color: #1e293b;
+    font-size: 30px;
 }
 
+/* ====== SERVICIOS ====== */
 .services {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
+    gap: 30px;
 }
 
 .card {
     background: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.05);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.05);
     transition: transform 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
 }
 
+/* ====== BENEFICIOS ====== */
+.benefits {
+    background: #f8fafc;
+    padding: 60px 20px;
+}
+
+.benefits ul {
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+/* ====== FOOTER ====== */
 footer {
     background-color: #0f172a;
     color: white;
     text-align: center;
     padding: 30px 20px;
 }
+
 </style>
 </head>
 
 <body>
 
+<nav>
+    <div><strong>Marcos Maldonado</strong></div>
+    <ul>
+        <li><a href="#sobre">Sobre mí</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+    </ul>
+</nav>
+
 <header>
-    <h1>Marcos Maldonado</h1>
-    <p>Consultoría y Asesoría Industrial Estratégica</p>
-    <a href="#contacto" class="btn">Solicitar Asesoría</a>
+    <h1>Optimización y Estrategia Industrial</h1>
+    <p>Reduzca costos y mejore la eficiencia operativa de su empresa</p>
+    <a href="https://wa.me/1TU_NUMERO_AQUI" class="btn" target="_blank">
+        Solicitar Asesoría
+    </a>
 </header>
 
-<section>
+<section id="sobre">
     <h2>Sobre mí</h2>
-    <p style="text-align:center; max-width:700px; margin:auto;">
+    <p style="text-align:center; max-width:700px; margin:auto; font-size:18px;">
         Ingeniero Industrial especializado en optimización de procesos,
-        reducción de costos y mejora continua. Ayudo a empresas a mejorar
-        su eficiencia operativa mediante estrategias técnicas y análisis estructurado.
+        reducción de costos y mejora continua. Trabajo con empresas que
+        buscan resultados medibles y soluciones técnicas estructuradas.
     </p>
 </section>
 
-<section>
+<section id="servicios">
     <h2>Servicios</h2>
     <div class="services">
         <div class="card">
@@ -130,15 +207,25 @@ footer {
     </div>
 </section>
 
+<section class="benefits">
+    <h2>Resultados que puede obtener</h2>
+    <ul>
+        <li>✔ Reducción real de costos operativos</li>
+        <li>✔ Incremento de productividad</li>
+        <li>✔ Mejora en eficiencia industrial</li>
+        <li>✔ Diagnóstico técnico estructurado</li>
+    </ul>
+</section>
+
 <section id="contacto">
     <h2>Contacto</h2>
-    <p style="text-align:center;">
+    <p style="text-align:center; font-size:18px;">
         Email: tuemail@email.com
     </p>
 </section>
 
 <footer>
-    <p>© 2026 Marcos Maldonado | Asesoría Industrial</p>
+    <p>© 2026 Marcos Maldonado | Asesoría Industrial Estratégica</p>
 </footer>
 
 </body>
