@@ -94,6 +94,11 @@ nav a:hover::after {
     width: 60%;
 }
 
+/* Quitar línea animada del botón Contacto */
+.btn-nav::after {
+    display: none;
+}
+
 nav a.active {
     background: #111;
     color: white;
