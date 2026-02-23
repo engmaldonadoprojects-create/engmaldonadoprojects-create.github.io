@@ -3,147 +3,168 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marcos Maldonado | Asesoría Industrial</title>
+<title>Marcos Maldonado | Consultoría Industrial</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
-html {
-    scroll-behavior: smooth;
+:root {
+    --olive: #5B6B2F;
+    --orange: #E67E22;
+    --light: #f8f9f6;
 }
+
+html { scroll-behavior: smooth; }
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: #ffffff;
-    color: #333;
+    font-family: 'Inter', sans-serif;
+    color: #222;
+    background: white;
 }
 
-/* ===== NAVBAR ===== */
+/* NAVBAR */
+
 nav {
     position: fixed;
     width: 100%;
-    top: 0;
-    background: #556B2F;
-    padding: 18px 50px;
+    background: white;
+    padding: 22px 8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 1px 10px rgba(0,0,0,0.05);
     z-index: 1000;
-    transition: 0.3s ease;
 }
 
-nav.scrolled {
-    padding: 12px 50px;
-    background: rgba(85,107,47,0.95);
-    backdrop-filter: blur(5px);
+nav .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--olive);
 }
 
 nav a {
-    color: white;
     text-decoration: none;
-    margin-left: 25px;
-    font-weight: 600;
+    color: #333;
+    margin-left: 35px;
+    font-weight: 500;
     transition: 0.3s;
 }
 
 nav a:hover {
-    color: #FFA500;
+    color: var(--orange);
 }
 
-/* ===== HEADER ===== */
-header {
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+/* HERO */
+
+.hero {
+    height: 90vh;
+    background: linear-gradient(to right, rgba(91,107,47,0.85), rgba(91,107,47,0.6)),
                 url('banner.jpg') center/cover no-repeat;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-    padding: 20px;
+    padding: 0 8%;
     color: white;
-    animation: fadeIn 1.5s ease-in-out;
 }
 
-header h1 {
+.hero-content {
+    max-width: 650px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
     font-size: 48px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    line-height: 1.2;
 }
 
-header p {
-    font-size: 22px;
-    margin-bottom: 25px;
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
 }
 
 .btn {
-    padding: 14px 28px;
-    background: #FFA500;
+    background: var(--orange);
+    padding: 14px 32px;
     color: white;
     text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
+    border-radius: 4px;
+    font-weight: 600;
     transition: 0.3s;
 }
 
 .btn:hover {
-    background: #e69500;
-    transform: translateY(-3px);
+    background: #cf6d17;
 }
 
-/* ===== SECTIONS ===== */
+/* SECTIONS */
+
 section {
-    padding: 100px 20px;
-    max-width: 1100px;
-    margin: auto;
-    opacity: 0;
-    transform: translateY(40px);
-    transition: 1s ease;
+    padding: 100px 8%;
 }
 
-section.visible {
-    opacity: 1;
-    transform: translateY(0);
+.section-light {
+    background: var(--light);
 }
 
-h2 {
-    text-align: center;
-    color: #556B2F;
-    margin-bottom: 40px;
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    margin-bottom: 50px;
+    color: var(--olive);
 }
 
-/* ===== SERVICES ===== */
+/* GRID */
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
 .services {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
+    gap: 35px;
 }
 
-.card {
-    border: 2px solid #556B2F;
-    padding: 25px;
-    border-radius: 12px;
-    transition: 0.4s;
+.service-card {
+    padding: 30px;
+    border-left: 4px solid var(--orange);
     background: white;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    transition: 0.3s;
 }
 
-.card:hover {
-    border-color: #FFA500;
-    transform: translateY(-8px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+.service-card:hover {
+    transform: translateY(-6px);
 }
 
-/* ===== FOOTER ===== */
+/* FOOTER */
+
 footer {
-    background: #556B2F;
+    background: var(--olive);
     color: white;
+    padding: 50px 8%;
     text-align: center;
-    padding: 25px;
 }
 
-/* ===== ANIMATIONS ===== */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+/* RESPONSIVE */
+
+@media(max-width:900px){
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    nav div {
+        margin-top: 15px;
+    }
 }
 
 </style>
@@ -151,87 +172,88 @@ footer {
 
 <body>
 
-<nav id="navbar">
-    <div style="color:white; font-weight:bold;">Marcos Maldonado</div>
+<nav>
+    <div class="logo">Marcos Maldonado</div>
     <div>
-        <a href="#inicio">Inicio</a>
-        <a href="#sobre">Sobre mí</a>
+        <a href="#sobre">Perfil</a>
         <a href="#servicios">Servicios</a>
+        <a href="#enfoque">Enfoque</a>
         <a href="#contacto">Contacto</a>
     </div>
 </nav>
 
-<header id="inicio">
-    <h1>Asesoría Industrial Estratégica</h1>
-    <p>Optimización de procesos • Reducción de costos • Mejora continua</p>
-    <a href="#contacto" class="btn">Solicitar Asesoría</a>
-</header>
+<div class="hero">
+    <div class="hero-content">
+        <h1>Consultoría Industrial Estratégica</h1>
+        <p>Transformación operativa basada en análisis técnico, eficiencia estructural y resultados medibles.</p>
+        <a href="#contacto" class="btn">Solicitar Diagnóstico</a>
+    </div>
+</div>
 
 <section id="sobre">
-    <h2>Sobre mí</h2>
-    <p style="text-align:center; max-width:700px; margin:auto;">
-        Ingeniero Industrial especializado en optimización de procesos,
-        eficiencia operativa y estrategias de mejora continua orientadas a resultados medibles.
-    </p>
-</section>
-
-<section id="servicios">
-    <h2>Servicios</h2>
-    <div class="services">
-        <div class="card">
-            <h3>Optimización de Procesos</h3>
-            <p>Diagnóstico y mejora de eficiencia productiva.</p>
+    <div class="section-title">Perfil Profesional</div>
+    <div class="grid-2">
+        <div>
+            <p>
+                Ingeniero Industrial especializado en optimización de procesos,
+                reducción estratégica de costos y mejora continua.
+            </p>
+            <p>
+                Mi enfoque combina análisis estructural, indicadores clave
+                y ejecución disciplinada para generar resultados sostenibles.
+            </p>
         </div>
-        <div class="card">
-            <h3>Reducción de Costos</h3>
-            <p>Estrategias técnicas para maximizar rentabilidad.</p>
-        </div>
-        <div class="card">
-            <h3>Mejora Continua</h3>
-            <p>Implementación de metodologías Lean.</p>
-        </div>
-        <div class="card">
-            <h3>Diagnóstico Industrial</h3>
-            <p>Análisis integral con enfoque estratégico.</p>
+        <div>
+            <p>
+                Trabajo con empresas que buscan elevar su eficiencia,
+                profesionalizar operaciones y maximizar rentabilidad
+                mediante decisiones técnicas fundamentadas.
+            </p>
         </div>
     </div>
 </section>
 
-<section id="contacto">
-    <h2>Contacto</h2>
-    <p style="text-align:center;">
-        Email: tuemail@email.com
+<section id="servicios" class="section-light">
+    <div class="section-title">Servicios Estratégicos</div>
+    <div class="services">
+        <div class="service-card">
+            <h3>Optimización Operativa</h3>
+            <p>Rediseño de procesos productivos con enfoque en eficiencia y reducción de desperdicios.</p>
+        </div>
+        <div class="service-card">
+            <h3>Reducción de Costos</h3>
+            <p>Análisis financiero-operativo para maximizar margen sin comprometer calidad.</p>
+        </div>
+        <div class="service-card">
+            <h3>Implementación Lean</h3>
+            <p>Metodologías estructuradas para mejora continua sostenible.</p>
+        </div>
+        <div class="service-card">
+            <h3>Diagnóstico Integral</h3>
+            <p>Evaluación estratégica de desempeño y propuesta de intervención técnica.</p>
+        </div>
+    </div>
+</section>
+
+<section id="enfoque">
+    <div class="section-title">Metodología de Trabajo</div>
+    <p>
+        1. Diagnóstico estructural  
+        2. Identificación de brechas operativas  
+        3. Diseño de estrategia técnica  
+        4. Implementación y seguimiento  
+        5. Medición de resultados
     </p>
 </section>
 
+<section id="contacto" class="section-light">
+    <div class="section-title">Contacto</div>
+    <p>Email: tuemail@email.com</p>
+</section>
+
 <footer>
-    © 2026 Marcos Maldonado | Asesoría Industrial
+    © 2026 Marcos Maldonado | Consultoría Industrial
 </footer>
-
-<script>
-
-/* Navbar efecto scroll */
-window.addEventListener("scroll", function() {
-    const nav = document.getElementById("navbar");
-    nav.classList.toggle("scrolled", window.scrollY > 50);
-});
-
-/* Animación al aparecer secciones */
-const sections = document.querySelectorAll("section");
-
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add("visible");
-        }
-    });
-}, { threshold: 0.2 });
-
-sections.forEach(section => {
-    observer.observe(section);
-});
-
-</script>
 
 </body>
 </html>
