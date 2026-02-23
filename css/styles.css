@@ -125,7 +125,7 @@ nav a:hover::after {
 
 .hero {
     position: relative;
-    background: url('../img/banner.jpg') center/cover no-repeat;
+    url('../img/BANNER%201.jpg') center/cover no-repeat;
     padding: 140px 20px 120px;
     display: flex;
     align-items: center;
