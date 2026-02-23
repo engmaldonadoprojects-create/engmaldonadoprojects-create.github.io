@@ -73,15 +73,17 @@ nav a:hover {
 }
 
 .hero {
-    position: relative;
-    height: 100vh;
-    background: url('../img/banner.jpg') center center / cover no-repeat fixed;
+    min-height: 75vh; /* Más elegante que 100vh */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 120px 20px 80px 20px;
+
+    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                url('../images/banner.jpg') center/cover no-repeat;
+
     color: white;
-    overflow: hidden;
 }
 
 .hero::before {
