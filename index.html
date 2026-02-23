@@ -3,167 +3,211 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marcos Maldonado | Consultoría Industrial</title>
+<title>Marcos Maldonado | Consultoría Estratégica</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-:root {
-    --olive: #5B6B2F;
-    --orange: #E67E22;
-    --light: #f8f9f6;
+:root{
+    --olive:#556B2F;
+    --orange:#E67E22;
+    --dark:#1f2a1c;
+    --light:#f4f6f2;
 }
 
-html { scroll-behavior: smooth; }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    color: #222;
-    background: white;
+body{
+    font-family:'Inter',sans-serif;
+    background:white;
+    color:#333;
 }
 
 /* NAVBAR */
 
-nav {
-    position: fixed;
-    width: 100%;
-    background: white;
-    padding: 22px 8%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 1px 10px rgba(0,0,0,0.05);
-    z-index: 1000;
+nav{
+    position:fixed;
+    width:100%;
+    background:white;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 2px 15px rgba(0,0,0,0.05);
+    z-index:1000;
 }
 
-nav .logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--olive);
+nav .logo{
+    font-weight:700;
+    font-size:20px;
+    color:var(--olive);
 }
 
-nav a {
-    text-decoration: none;
-    color: #333;
-    margin-left: 35px;
-    font-weight: 500;
-    transition: 0.3s;
+nav ul{
+    list-style:none;
+    display:flex;
 }
 
-nav a:hover {
-    color: var(--orange);
+nav ul li{
+    margin-left:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#333;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:var(--orange);
 }
 
 /* HERO */
 
-.hero {
-    height: 90vh;
-    background: linear-gradient(to right, rgba(91,107,47,0.85), rgba(91,107,47,0.6)),
-                url('banner.jpg') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    padding: 0 8%;
-    color: white;
+.hero{
+    padding:140px 8% 100px 8%;
+    background:linear-gradient(135deg,var(--olive),#394c1f);
+    color:white;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:40px;
 }
 
-.hero-content {
-    max-width: 650px;
+.hero-text h1{
+    font-size:48px;
+    margin-bottom:20px;
 }
 
-.hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 48px;
-    margin-bottom: 20px;
-    line-height: 1.2;
+.hero-text p{
+    font-size:18px;
+    margin-bottom:30px;
+    line-height:1.6;
 }
 
-.hero p {
-    font-size: 20px;
-    margin-bottom: 30px;
+.btn-primary{
+    background:var(--orange);
+    padding:14px 30px;
+    border:none;
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    border-radius:5px;
+    margin-right:15px;
+    transition:0.3s;
 }
 
-.btn {
-    background: var(--orange);
-    padding: 14px 32px;
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-    font-weight: 600;
-    transition: 0.3s;
+.btn-primary:hover{
+    background:#cf6d17;
 }
 
-.btn:hover {
-    background: #cf6d17;
+.btn-outline{
+    border:2px solid white;
+    padding:12px 28px;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+    font-weight:500;
 }
 
-/* SECTIONS */
+/* HERO IMAGE */
 
-section {
-    padding: 100px 8%;
+.hero img{
+    width:100%;
+    border-radius:10px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.3);
 }
 
-.section-light {
-    background: var(--light);
+/* CARDS SECTION */
+
+.section{
+    padding:100px 8%;
 }
 
-.section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    margin-bottom: 50px;
-    color: var(--olive);
+.section-light{
+    background:var(--light);
 }
 
-/* GRID */
-
-.grid-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
+.section h2{
+    font-size:32px;
+    margin-bottom:50px;
+    color:var(--olive);
 }
 
-.services {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 35px;
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
 }
 
-.service-card {
-    padding: 30px;
-    border-left: 4px solid var(--orange);
-    background: white;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
-    transition: 0.3s;
+.card{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.07);
+    transition:0.3s;
 }
 
-.service-card:hover {
-    transform: translateY(-6px);
+.card:hover{
+    transform:translateY(-6px);
+}
+
+/* TABS (SUBPÁGINAS INTERNAS) */
+
+.tabs{
+    display:flex;
+    margin-bottom:30px;
+}
+
+.tabs button{
+    padding:12px 25px;
+    border:none;
+    background:#e9ece5;
+    margin-right:10px;
+    cursor:pointer;
+    font-weight:600;
+    border-radius:4px;
+    transition:0.3s;
+}
+
+.tabs button.active{
+    background:var(--olive);
+    color:white;
+}
+
+.tab-content{
+    display:none;
+    padding:25px;
+    background:white;
+    border-radius:8px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.05);
+}
+
+.tab-content.active{
+    display:block;
 }
 
 /* FOOTER */
 
-footer {
-    background: var(--olive);
-    color: white;
-    padding: 50px 8%;
-    text-align: center;
+footer{
+    background:var(--dark);
+    color:white;
+    text-align:center;
+    padding:40px;
 }
 
 /* RESPONSIVE */
 
 @media(max-width:900px){
-    .grid-2 {
-        grid-template-columns: 1fr;
-    }
-
-    nav {
-        flex-direction: column;
-    }
-
-    nav div {
-        margin-top: 15px;
+    .hero{
+        grid-template-columns:1fr;
+        text-align:center;
     }
 }
 
@@ -174,86 +218,87 @@ footer {
 
 <nav>
     <div class="logo">Marcos Maldonado</div>
-    <div>
-        <a href="#sobre">Perfil</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#enfoque">Enfoque</a>
-        <a href="#contacto">Contacto</a>
-    </div>
+    <ul>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#metodologia">Metodología</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+    </ul>
 </nav>
 
-<div class="hero">
-    <div class="hero-content">
+<section class="hero">
+    <div class="hero-text">
         <h1>Consultoría Industrial Estratégica</h1>
-        <p>Transformación operativa basada en análisis técnico, eficiencia estructural y resultados medibles.</p>
-        <a href="#contacto" class="btn">Solicitar Diagnóstico</a>
+        <p>Optimización operativa, reducción de costos y transformación estructural con enfoque técnico.</p>
+        <a href="#contacto" class="btn-primary">Solicitar Asesoría</a>
+        <a href="#metodologia" class="btn-outline">Ver Metodología</a>
     </div>
-</div>
-
-<section id="sobre">
-    <div class="section-title">Perfil Profesional</div>
-    <div class="grid-2">
-        <div>
-            <p>
-                Ingeniero Industrial especializado en optimización de procesos,
-                reducción estratégica de costos y mejora continua.
-            </p>
-            <p>
-                Mi enfoque combina análisis estructural, indicadores clave
-                y ejecución disciplinada para generar resultados sostenibles.
-            </p>
-        </div>
-        <div>
-            <p>
-                Trabajo con empresas que buscan elevar su eficiencia,
-                profesionalizar operaciones y maximizar rentabilidad
-                mediante decisiones técnicas fundamentadas.
-            </p>
-        </div>
+    <div>
+        <img src="banner.jpg" alt="Consultoría">
     </div>
 </section>
 
-<section id="servicios" class="section-light">
-    <div class="section-title">Servicios Estratégicos</div>
-    <div class="services">
-        <div class="service-card">
-            <h3>Optimización Operativa</h3>
-            <p>Rediseño de procesos productivos con enfoque en eficiencia y reducción de desperdicios.</p>
+<section id="servicios" class="section section-light">
+    <h2>Servicios</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Optimización de Procesos</h3>
+            <p>Rediseño estructural para máxima eficiencia.</p>
         </div>
-        <div class="service-card">
+        <div class="card">
             <h3>Reducción de Costos</h3>
-            <p>Análisis financiero-operativo para maximizar margen sin comprometer calidad.</p>
+            <p>Incremento de margen mediante análisis técnico.</p>
         </div>
-        <div class="service-card">
+        <div class="card">
             <h3>Implementación Lean</h3>
-            <p>Metodologías estructuradas para mejora continua sostenible.</p>
-        </div>
-        <div class="service-card">
-            <h3>Diagnóstico Integral</h3>
-            <p>Evaluación estratégica de desempeño y propuesta de intervención técnica.</p>
+            <p>Metodologías de mejora continua.</p>
         </div>
     </div>
 </section>
 
-<section id="enfoque">
-    <div class="section-title">Metodología de Trabajo</div>
-    <p>
-        1. Diagnóstico estructural  
-        2. Identificación de brechas operativas  
-        3. Diseño de estrategia técnica  
-        4. Implementación y seguimiento  
-        5. Medición de resultados
-    </p>
+<section id="metodologia" class="section">
+    <h2>Metodología</h2>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="openTab(1)">Diagnóstico</button>
+        <button class="tab-btn" onclick="openTab(2)">Plan Estratégico</button>
+        <button class="tab-btn" onclick="openTab(3)">Implementación</button>
+    </div>
+
+    <div id="tab1" class="tab-content active">
+        Evaluación integral de procesos y estructura operativa.
+    </div>
+
+    <div id="tab2" class="tab-content">
+        Diseño técnico de mejora y reducción de brechas.
+    </div>
+
+    <div id="tab3" class="tab-content">
+        Ejecución, medición y control de resultados.
+    </div>
+
 </section>
 
-<section id="contacto" class="section-light">
-    <div class="section-title">Contacto</div>
+<section id="contacto" class="section section-light">
+    <h2>Contacto</h2>
     <p>Email: tuemail@email.com</p>
 </section>
 
 <footer>
-    © 2026 Marcos Maldonado | Consultoría Industrial
+© 2026 Marcos Maldonado | Consultoría Industrial
 </footer>
+
+<script>
+function openTab(tabNumber){
+    let contents=document.querySelectorAll('.tab-content');
+    let buttons=document.querySelectorAll('.tab-btn');
+
+    contents.forEach(c=>c.classList.remove('active'));
+    buttons.forEach(b=>b.classList.remove('active'));
+
+    document.getElementById('tab'+tabNumber).classList.add('active');
+    buttons[tabNumber-1].classList.add('active');
+}
+</script>
 
 </body>
 </html>
