@@ -94,6 +94,11 @@ nav a:hover::after {
     width: 60%;
 }
 
+nav a.active {
+    background: #111;
+    color: white;
+}
+
 .btn-nav {
     background-color: var(--olive);
     color: white;
