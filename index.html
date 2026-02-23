@@ -3,302 +3,73 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marcos Maldonado | Consultoría Estratégica</title>
+<title>Marcos Maldonado | Consultora Estratégica</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-<style>
-
-:root{
-    --olive:#556B2F;
-    --orange:#E67E22;
-    --dark:#1f2a1c;
-    --light:#f4f6f2;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:'Inter',sans-serif;
-    background:white;
-    color:#333;
-}
-
-/* NAVBAR */
-
-nav{
-    position:fixed;
-    width:100%;
-    background:white;
-    padding:20px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    box-shadow:0 2px 15px rgba(0,0,0,0.05);
-    z-index:1000;
-}
-
-nav .logo{
-    font-weight:700;
-    font-size:20px;
-    color:var(--olive);
-}
-
-nav ul{
-    list-style:none;
-    display:flex;
-}
-
-nav ul li{
-    margin-left:30px;
-}
-
-nav ul li a{
-    text-decoration:none;
-    color:#333;
-    font-weight:500;
-    transition:0.3s;
-}
-
-nav ul li a:hover{
-    color:var(--orange);
-}
-
-/* HERO */
-
-.hero{
-    padding:140px 8% 100px 8%;
-    background:linear-gradient(135deg,var(--olive),#394c1f);
-    color:white;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    align-items:center;
-    gap:40px;
-}
-
-.hero-text h1{
-    font-size:48px;
-    margin-bottom:20px;
-}
-
-.hero-text p{
-    font-size:18px;
-    margin-bottom:30px;
-    line-height:1.6;
-}
-
-.btn-primary{
-    background:var(--orange);
-    padding:14px 30px;
-    border:none;
-    color:white;
-    text-decoration:none;
-    font-weight:600;
-    border-radius:5px;
-    margin-right:15px;
-    transition:0.3s;
-}
-
-.btn-primary:hover{
-    background:#cf6d17;
-}
-
-.btn-outline{
-    border:2px solid white;
-    padding:12px 28px;
-    color:white;
-    text-decoration:none;
-    border-radius:5px;
-    font-weight:500;
-}
-
-/* HERO IMAGE */
-
-.hero img{
-    width:100%;
-    border-radius:10px;
-    box-shadow:0 15px 40px rgba(0,0,0,0.3);
-}
-
-/* CARDS SECTION */
-
-.section{
-    padding:100px 8%;
-}
-
-.section-light{
-    background:var(--light);
-}
-
-.section h2{
-    font-size:32px;
-    margin-bottom:50px;
-    color:var(--olive);
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
-}
-
-.card{
-    background:white;
-    padding:30px;
-    border-radius:10px;
-    box-shadow:0 8px 25px rgba(0,0,0,0.07);
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-6px);
-}
-
-/* TABS (SUBPÁGINAS INTERNAS) */
-
-.tabs{
-    display:flex;
-    margin-bottom:30px;
-}
-
-.tabs button{
-    padding:12px 25px;
-    border:none;
-    background:#e9ece5;
-    margin-right:10px;
-    cursor:pointer;
-    font-weight:600;
-    border-radius:4px;
-    transition:0.3s;
-}
-
-.tabs button.active{
-    background:var(--olive);
-    color:white;
-}
-
-.tab-content{
-    display:none;
-    padding:25px;
-    background:white;
-    border-radius:8px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.05);
-}
-
-.tab-content.active{
-    display:block;
-}
-
-/* FOOTER */
-
-footer{
-    background:var(--dark);
-    color:white;
-    text-align:center;
-    padding:40px;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:900px){
-    .hero{
-        grid-template-columns:1fr;
-        text-align:center;
-    }
-}
-
-</style>
 </head>
-
 <body>
 
-<nav>
-    <div class="logo">Marcos Maldonado</div>
-    <ul>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#metodologia">Metodología</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-    </ul>
-</nav>
+<header class="navbar">
+    <div class="container nav-content">
+        <div class="logo">MM Strategy</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="metodologia.html">Metodología</a></li>
+                <li><a href="proyectos.html">Proyectos</a></li>
+                <li><a href="contacto.html" class="btn-nav">Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
 <section class="hero">
-    <div class="hero-text">
-        <h1>Consultoría Industrial Estratégica</h1>
-        <p>Optimización operativa, reducción de costos y transformación estructural con enfoque técnico.</p>
-        <a href="#contacto" class="btn-primary">Solicitar Asesoría</a>
-        <a href="#metodologia" class="btn-outline">Ver Metodología</a>
-    </div>
-    <div>
-        <img src="banner.jpg" alt="Consultoría">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Estrategia Industrial con Visión Ejecutiva</h1>
+        <p>Transformamos operaciones en ventajas competitivas sostenibles.</p>
+        <a href="contacto.html" class="btn-primary">Solicitar Consultoría</a>
     </div>
 </section>
 
-<section id="servicios" class="section section-light">
-    <h2>Servicios</h2>
-    <div class="cards">
-        <div class="card">
-            <h3>Optimización de Procesos</h3>
-            <p>Rediseño estructural para máxima eficiencia.</p>
-        </div>
-        <div class="card">
-            <h3>Reducción de Costos</h3>
-            <p>Incremento de margen mediante análisis técnico.</p>
-        </div>
-        <div class="card">
-            <h3>Implementación Lean</h3>
-            <p>Metodologías de mejora continua.</p>
-        </div>
+<section class="about fade-in">
+    <div class="container">
+        <h2>Enfoque Estratégico</h2>
+        <p>
+            Consultoría orientada a dirección ejecutiva, optimización estructural y
+            eficiencia operativa avanzada. Diseñamos soluciones de impacto real
+            basadas en análisis profundo y metodología disciplinada.
+        </p>
     </div>
 </section>
 
-<section id="metodologia" class="section">
-    <h2>Metodología</h2>
-
-    <div class="tabs">
-        <button class="tab-btn active" onclick="openTab(1)">Diagnóstico</button>
-        <button class="tab-btn" onclick="openTab(2)">Plan Estratégico</button>
-        <button class="tab-btn" onclick="openTab(3)">Implementación</button>
+<section class="services fade-in">
+    <div class="container grid-3">
+        <div class="service-card">
+            <h3>Optimización Ejecutiva</h3>
+            <p>Reestructuración de procesos críticos con enfoque en rentabilidad y escalabilidad.</p>
+        </div>
+        <div class="service-card">
+            <h3>Estrategia de Costos</h3>
+            <p>Reducción inteligente de gastos sin comprometer desempeño ni calidad.</p>
+        </div>
+        <div class="service-card">
+            <h3>Transformación Operativa</h3>
+            <p>Implementación de modelos Lean y mejora organizacional estratégica.</p>
+        </div>
     </div>
-
-    <div id="tab1" class="tab-content active">
-        Evaluación integral de procesos y estructura operativa.
-    </div>
-
-    <div id="tab2" class="tab-content">
-        Diseño técnico de mejora y reducción de brechas.
-    </div>
-
-    <div id="tab3" class="tab-content">
-        Ejecución, medición y control de resultados.
-    </div>
-
-</section>
-
-<section id="contacto" class="section section-light">
-    <h2>Contacto</h2>
-    <p>Email: tuemail@email.com</p>
 </section>
 
 <footer>
-© 2026 Marcos Maldonado | Consultoría Industrial
+    <div class="container">
+        <p>© 2026 Marcos Maldonado | Consultora Estratégica Premium</p>
+    </div>
 </footer>
 
-<script>
-function openTab(tabNumber){
-    let contents=document.querySelectorAll('.tab-content');
-    let buttons=document.querySelectorAll('.tab-btn');
-
-    contents.forEach(c=>c.classList.remove('active'));
-    buttons.forEach(b=>b.classList.remove('active'));
-
-    document.getElementById('tab'+tabNumber).classList.add('active');
-    buttons[tabNumber-1].classList.add('active');
-}
-</script>
+<script src="js/main.js"></script>
 
 </body>
 </html>
