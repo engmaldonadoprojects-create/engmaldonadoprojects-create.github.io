@@ -125,8 +125,10 @@ nav a:hover::after {
 
 .hero {
     position: relative;
-    url('../img/BANNER%201.jpg') center/cover no-repeat;
-    padding: 140px 20px 120px;
+    height: 540px;
+    background: url('../img/BANNER 1.jpg') center center no-repeat;
+    background-size: cover;
+    background-attachment: fixed; /* efecto parallax */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -138,9 +140,9 @@ nav a:hover::after {
     position: absolute;
     inset: 0;
     background: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.75),
-        rgba(0, 0, 0, 0.45)
+        120deg,
+        rgba(0, 0, 0, 0.85),
+        rgba(0, 0, 0, 0.55)
     );
     z-index: 1;
 }
