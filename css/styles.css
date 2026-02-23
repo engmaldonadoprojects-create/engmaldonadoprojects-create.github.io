@@ -73,14 +73,26 @@ nav a:hover {
 }
 
 .hero {
-    height: 100vh;
-    background: url('../img/banner.jpg') center/cover no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: relative;
+    height: 100vh;
+    background: url('../img/banner.jpg') center center / cover no-repeat fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding-top: 80px;
+    color: white;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.75),
+        rgba(0, 0, 0, 0.45)
+    );
 }
 
 .hero-overlay {
@@ -90,9 +102,7 @@ nav a:hover {
 }
 
 .hero-content {
-    position: relative;
-    color: white;
-    max-width: 700px;
+    animation: fadeUp 1.2s ease forwards;
 }
 
 .hero h1 {
@@ -103,6 +113,17 @@ nav a:hover {
 .hero p {
     margin-bottom: 30px;
     font-size: 18px;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .btn-primary {
