@@ -1,27 +1,84 @@
-<main>
-    <section id="proyectos" class="projects">
-        <div class="section-title">
-            <h2>Proyectos <span>Destacados</span></h2>
-            <p>Impacto real en sectores estratégicos.</p>
-        </div>
-        <div class="projects-grid">
-            <div class="project-item">
-                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800" alt="Retail">
-                <div class="project-overlay"><h3>Retail</h3></div>
-            </div>
-            <div class="project-item">
-                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800" alt="Logística">
-                <div class="project-overlay"><h3>Logística</h3></div>
-            </div>
-            <div class="project-item">
-                <img src="https://images.unsplash.com/photo-1551288049-bbda38a5f85d?q=80&w=800" alt="Finanzas">
-                <div class="project-overlay"><h3>Finanzas</h3></div>
-            </div>
-        </div>
-    </section>
+/* Variables de Diseño Maestro */
+:root {
+    --verde-primario: #2D5A27;
+    --verde-brillante: #4CAF50;
+    --negro-cuerpo: #1A1A1A;
+    --blanco-puro: #FFFFFF;
+    --gris-suave: #f4f7f4;
+    --dorado: #b8860b;
+    --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
 
-    <section style="background: var(--negro-cuerpo); padding: 60px 8%; text-align: center; color: white;">
-        <h2 style="font-size: 2rem; margin-bottom: 20px;">Convierta sus Datos en <span style="color: var(--dorado);">Ventaja Competitiva</span></h2>
-        <a href="#contacto" class="cta-main" style="background: var(--verde-brillante);">Agendar una Reunión</a>
-    </section>
-</main>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+html { scroll-behavior: smooth; font-size: 15px; }
+
+/* Estilo Hero con Gradiente */
+.hero {
+    display: flex;
+    align-items: center;
+    padding: 100px 8%;
+    background: radial-gradient(circle at top right, #eef5ee 0%, #ffffff 60%);
+    min-height: 80vh;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: #333;
+    line-height: 1.1;
+}
+
+.highlight-green { color: var(--verde-primario); border-bottom: 3px solid var(--verde-brillante); }
+
+/* Tarjetas de Servicios Estilo Pro */
+.service-card {
+    background: white;
+    border-radius: 12px;
+    border-bottom: 4px solid transparent;
+    transition: all 0.4s ease;
+    box-shadow: var(--shadow);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-bottom: 4px solid var(--verde-primario);
+}
+
+/* Módulo 5: Proyectos Destacados (Nuevo) */
+.projects {
+    padding: 80px 8%;
+    background: #fdfdfd;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.project-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    height: 250px;
+    box-shadow: var(--shadow);
+}
+
+.project-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.project-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    text-align: center;
+}
+
+.project-item:hover img { transform: scale(1.1); }
