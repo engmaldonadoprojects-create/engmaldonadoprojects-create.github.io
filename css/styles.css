@@ -116,6 +116,17 @@ nav ul li a { text-decoration: none; color: var(--negro-cuerpo); font-weight: 50
 }
 .arrow { color: #ccc; font-size: 1.5rem; }
 
+/* Refuerzo para asegurar visibilidad del Hero */
+.img-hero-fix {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 300px; /* Asegura que el contenedor no colapse */
+    border-radius: 20px;
+    object-fit: cover;
+    display: block !important;
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.1);
+}
+
 @media (max-width: 768px) {
     .hero { flex-direction: column; text-align: center; }
     .arrow { display: none; }
