@@ -1,84 +1,73 @@
-/* Variables de Diseño Maestro */
-:root {
-    --verde-primario: #2D5A27;
-    --verde-brillante: #4CAF50;
-    --negro-cuerpo: #1A1A1A;
-    --blanco-puro: #FFFFFF;
-    --gris-suave: #f4f7f4;
-    --dorado: #b8860b;
-    --shadow: 0 10px 30px rgba(0,0,0,0.08);
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MM Strategy | Consultoría Industrial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-html { scroll-behavior: smooth; font-size: 15px; }
+    <nav class="navbar">
+        <div class="logo"><span class="brand-m">MM</span><span class="brand-text">Strategy</span></div>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#metodologia">Metodología</a></li>
+            <li><a href="#contacto" class="btn-contacto">Contacto</a></li>
+        </ul>
+    </nav>
 
-/* Estilo Hero con Gradiente */
-.hero {
-    display: flex;
-    align-items: center;
-    padding: 100px 8%;
-    background: radial-gradient(circle at top right, #eef5ee 0%, #ffffff 60%);
-    min-height: 80vh;
-}
+    <main>
+        <section class="hero" id="inicio">
+            <div class="hero-content">
+                <h1>Transformamos los <span class="highlight-green">Datos</span> en Decisiones <span class="cursive-gold">Estratégicas</span></h1>
+                <p>Ingeniería Industrial aplicada a la Analítica de Negocios.</p>
+                <a href="#contacto" class="cta-main">Solicitar Consultoría</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1551288049-bbda38a5f85d?auto=format&fit=crop&w=800&q=80" alt="Hero">
+            </div>
+        </section>
 
-.hero-content h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    color: #333;
-    line-height: 1.1;
-}
+        <section id="servicios" class="services">
+            <div class="section-title"><h2>Nuestros <span>Servicios</span></h2></div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="card-image"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80"></div>
+                    <div class="card-content"><h3>Análisis de Datos</h3><ul><li><i class="fas fa-check"></i> KPIs Operativos</li><li><i class="fas fa-check"></i> Reporting</li></ul></div>
+                </div>
+                <div class="service-card">
+                    <div class="card-image"><img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=500&q=80"></div>
+                    <div class="card-content"><h3>Visualización</h3><ul><li><i class="fas fa-check"></i> Dashboards</li><li><i class="fas fa-check"></i> Power BI</li></ul></div>
+                </div>
+                <div class="service-card">
+                    <div class="card-image"><img src="https://images.unsplash.com/photo-1518186239717-2553ae4b80ed?auto=format&fit=crop&w=500&q=80"></div>
+                    <div class="card-content"><h3>Modelos</h3><ul><li><i class="fas fa-check"></i> ML</li><li><i class="fas fa-check"></i> IA Generativa</li></ul></div>
+                </div>
+                <div class="service-card">
+                    <div class="card-image"><img src="https://images.unsplash.com/photo-1454165833767-027eeef1596e?auto=format&fit=crop&w=500&q=80"></div>
+                    <div class="card-content"><h3>Estrategia</h3><ul><li><i class="fas fa-check"></i> Procesos</li><li><i class="fas fa-check"></i> ROI</li></ul></div>
+                </div>
+            </div>
+        </section>
 
-.highlight-green { color: var(--verde-primario); border-bottom: 3px solid var(--verde-brillante); }
-
-/* Tarjetas de Servicios Estilo Pro */
-.service-card {
-    background: white;
-    border-radius: 12px;
-    border-bottom: 4px solid transparent;
-    transition: all 0.4s ease;
-    box-shadow: var(--shadow);
-}
-
-.service-card:hover {
-    transform: translateY(-10px);
-    border-bottom: 4px solid var(--verde-primario);
-}
-
-/* Módulo 5: Proyectos Destacados (Nuevo) */
-.projects {
-    padding: 80px 8%;
-    background: #fdfdfd;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-}
-
-.project-item {
-    position: relative;
-    border-radius: 15px;
-    overflow: hidden;
-    height: 250px;
-    box-shadow: var(--shadow);
-}
-
-.project-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: 0.5s;
-}
-
-.project-overlay {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 20px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
-    color: white;
-    text-align: center;
-}
-
-.project-item:hover img { transform: scale(1.1); }
+        <section id="metodologia" class="methodology">
+            <div class="section-title"><h2>Nuestra <span>Metodología</span></h2></div>
+            <div class="method-container">
+                <div class="step"><div class="step-icon"><i class="fas fa-search"></i></div><h4>Diagnóstico</h4></div>
+                <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+                <div class="step"><div class="step-icon"><i class="fas fa-database"></i></div><h4>Recolección</h4></div>
+                <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+                <div class="step"><div class="step-icon"><i class="fas fa-chart-line"></i></div><h4>Análisis</h4></div>
+                <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+                <div class="step"><div class="step-icon"><i class="fas fa-lightbulb"></i></div><h4>Estrategia</h4></div>
+                <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+                <div class="step"><div class="step-icon"><i class="fas fa-handshake"></i></div><h4>Implementación</h4></div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
