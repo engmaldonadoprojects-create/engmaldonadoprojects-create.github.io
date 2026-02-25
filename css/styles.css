@@ -21,12 +21,8 @@ html {
 }
 
 body {
-    /* Negro profundo con degradado hacia gris oscuro */
-    background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
-    /* Textura micro-ruido para sensación de material premium */
-    background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
-    background-attachment: fixed;
-    color: #e0e0e0; /* Gris claro para texto, mucho más elegante que el blanco puro */
+    background-color: var(--blanco-puro);
+    color: var(--negro-cuerpo);
     line-height: 1.6;
 }
 
