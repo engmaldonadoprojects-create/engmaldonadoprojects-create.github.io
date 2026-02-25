@@ -21,18 +21,23 @@ html {
 }
 
 body {
-    background-color: #f8f9fa;
-    background-image: 
-        linear-gradient(rgba(200, 200, 200, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(200, 200, 200, 0.1) 1px, transparent 1px);
-    background-size: 30px 30px; /* Tamaño de la cuadrícula técnica */
+    /* Negro profundo con degradado hacia gris oscuro */
+    background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
+    /* Textura micro-ruido para sensación de material premium */
+    background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
     background-attachment: fixed;
+    color: #e0e0e0; /* Gris claro para texto, mucho más elegante que el blanco puro */
+    line-height: 1.6;
 }
 
-/* Forzamos que las secciones dejen ver este nuevo fondo */
+/* Ajuste necesario para las secciones para que no bloqueen el fondo */
 .hero, .services, .methodology {
     background: transparent !important;
 }
+
+/* IMPORTANTE: Ajuste de Tarjetas para el modo oscuro */
+.service-card {
+    background: rgba(255, 2
 
 /* --- Navegación --- */
 .navbar {
