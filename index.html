@@ -3,128 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MM Strategy | Recuperación de Sistema</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>MM Strategy | Consultoría Industrial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* RESET TOTAL PARA EVITAR ERRORES */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+        /* --- VARIABLES MAESTRAS --- */
+        :root {
+            --verde-brillante: #4CAF50;
+            --verde-obscuro: #2D5A27;
+            --dorado: #b8860b;
+            --negro-oled: #020405;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        html { scroll-behavior: smooth; font-size: 15px; }
+
+        /* --- FONDO DE IMPACTO (Digital Twin Style) --- */
         body {
-            background-color: #050505; /* Negro profundo */
-            color: #ffffff !important; /* Forzamos blanco */
-            font-family: 'Montserrat', sans-serif;
-            min-height: 100vh;
-        }
-
-        /* FONDO CON REJILLA (Digital Twin Style) */
-        .grid-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: var(--negro-oled);
             background-image: 
-                linear-gradient(rgba(76, 175, 80, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(76, 175, 80, 0.1) 1px, transparent 1px);
-            background-size: 40px 40px;
-            z-index: -1;
+                radial-gradient(at 0% 0%, rgba(76, 175, 80, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(184, 134, 11, 0.1) 0px, transparent 50%),
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+            background-attachment: fixed;
+            color: #e0e0e0;
         }
 
-        /* NAVBAR */
+        /* --- NAVEGACIÓN EJECUTIVA --- */
         .navbar {
-            background: #000;
-            padding: 20px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid #4CAF50;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 8%; background: rgba(2, 4, 5, 0.9);
+            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
         }
-        .logo { color: #4CAF50; font-weight: 700; font-size: 1.5rem; }
+        .logo { font-size: 1.5rem; font-weight: 700; }
+        .brand-m { color: var(--verde-brillante); }
+        .brand-text { color: #fff; }
+        nav ul { display: flex; list-style: none; gap: 25px; align-items: center; }
+        nav ul li a { text-decoration: none; color: #fff; font-weight: 500; transition: 0.3s; }
+        nav ul li a:hover { color: var(--verde-brillante); }
+        .btn-contacto { background: var(--verde-obscuro); padding: 10px 20px; border-radius: 25px; }
 
-        /* HERO SECTION */
-        .hero {
-            padding: 100px 8%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+        /* --- HERO SECTION & COMPONENTES DASHBOARD --- */
+        .hero { display: flex; align-items: center; padding: 100px 8%; min-height: 80vh; gap: 40px; }
+        .hero-content { flex: 1; }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; color: #fff; }
+        .highlight-green { color: var(--verde-brillante); }
+        .cursive-gold { font-family: 'Playfair Display', serif; color: var(--dorado); font-style: italic; }
+        .hero-content p { font-size: 1.2rem; color: #aaa; margin-bottom: 30px; }
+        
+        .status-badge {
+            background: rgba(76, 175, 80, 0.1);
+            border: 1px solid var(--verde-brillante);
+            color: var(--verde-brillante);
+            padding: 5px 15px; border-radius: 20px;
+            font-size: 0.8rem; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px;
         }
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            color: #ffffff;
-        }
-        .highlight { color: #4CAF50; }
-
-        /* CONTENEDOR DE GRÁFICOS (LO QUE TE GUSTÓ) */
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 40px 8%;
-            width: 100%;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid #4CAF50;
-            padding: 20px;
-            border-radius: 15px;
+        .dot {
+            width: 8px; height: 8px; background: var(--verde-brillante);
+            border-radius: 50%; box-shadow: 0 0 10px var(--verde-brillante);
+            animation: pulse 1.5s infinite;
         }
 
-        /* GRÁFICO VERDE ANIMADO */
-        .graph {
-            height: 80px;
-            display: flex;
-            align-items: flex-end;
-            gap: 5px;
-            margin-bottom: 15px;
-            background: rgba(0,0,0,0.5);
-            padding: 10px;
+        .hero-btns { display: flex; align-items: center; }
+        .cta-main {
+            display: inline-block; background: var(--verde-obscuro); color: white;
+            padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 700;
+            transition: 0.3s; box-shadow: 0 0 20px rgba(76, 175, 80, 0.2);
         }
-        .bar {
-            flex: 1;
-            background: #4CAF50;
-            box-shadow: 0 0 10px #4CAF50;
-            animation: pulseHeight 2s infinite alternate;
+        .cta-main:hover { transform: scale(1.05); background: var(--verde-brillante); }
+        .cta-secondary {
+            margin-left: 20px; color: #fff; text-decoration: none;
+            border-bottom: 1px dashed var(--verde-brillante); font-size: 0.9rem; transition: 0.3s;
         }
-        .bar:nth-child(2) { animation-delay: 0.5s; }
-        .bar:nth-child(3) { animation-delay: 1s; }
 
-        @keyframes pulseHeight {
-            from { height: 20%; }
-            to { height: 100%; }
+        .hero-image-container {
+            position: relative; flex: 1; overflow: hidden;
+            border-radius: 20px; border: 1px solid rgba(76, 175, 80, 0.3);
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
         }
+        .scan-line {
+            position: absolute; width: 100%; height: 2px;
+            background: var(--verde-brillante);
+            box-shadow: 0 0 15px var(--verde-brillante);
+            top: 0; z-index: 2; animation: scan 3s linear infinite;
+        }
+        .hero-image-container img { width: 100%; display: block; }
+
+        /* --- SERVICIOS --- */
+        .services { padding: 80px 8%; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 3rem; background: linear-gradient(to bottom, #fff, #888); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .services-grid { 
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; 
+            transform: scale(0.95); transform-origin: top center;
+        }
+        .service-card {
+            background: var(--glass-bg); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px; overflow: hidden; backdrop-filter: blur(15px);
+            transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .service-card:hover { transform: translateY(-15px); border-color: var(--verde-brillante); box-shadow: 0 0 30px rgba(76, 175, 80, 0.2); }
+        .card-image { height: 150px; overflow: hidden; }
+        .card-image img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
+        .card-content { padding: 20px; }
+        .card-content h3 { color: var(--verde-brillante); margin-bottom: 15px; font-size: 1.1rem; }
+        .card-content ul { list-style: none; font-size: 0.85rem; color: #ccc; }
+        .card-content li { margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .card-content i { color: var(--verde-brillante); }
+
+        /* --- ANIMACIONES --- */
+        @keyframes scan { 0% { top: 0%; } 100% { top: 100%; } }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+
+        @media (max-width: 1024px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .hero { flex-direction: column; text-align: center; } .services-grid { grid-template-columns: 1fr; } .hero-btns { justify-content: center; } }
     </style>
 </head>
 <body>
-    <div class="grid-bg"></div>
 
     <nav class="navbar">
-        <div class="logo">MM STRATEGY</div>
-        <div style="color: white;">System_Online: 100%</div>
+        <div class="logo"><span class="brand-m">MM</span><span class="brand-text">Strategy</span></div>
+        <ul>
+            <li><a href="#inicio">System.Start()</a></li>
+            <li><a href="#servicios">Data.Services()</a></li>
+            <li><a href="#metodologia">Process.Flow()</a></li>
+            <li><a href="#contacto" class="btn-contacto">Contact.Connect()</a></li>
+        </ul>
     </nav>
 
     <main>
-        <section class="hero">
-            <h1>Ingeniería de <span class="highlight">Datos</span></h1>
-            <p style="font-size: 1.2rem; max-width: 600px; color: #ccc;">Sistemas industriales resilientes y análisis de procesos avanzado.</p>
+        <section class="hero" id="inicio">
+            <div class="hero-content">
+                <div class="status-badge"><span class="dot"></span> System Active: 2026 Strategy</div>
+                <h1>Ingeniería de <span class="highlight-green">Datos</span> & <br><span class="cursive-gold">Resiliencia</span> Industrial</h1>
+                <p>Modelado de Gemelos Digitales (Digital Twins) y optimización predictiva para la toma de decisiones ejecutivas.</p>
+                <div class="hero-btns">
+                    <a href="#contacto" class="cta-main">Desplegar Análisis</a>
+                    <a href="#servicios" class="cta-secondary">Ver Métricas</a>
+                </div>
+            </div>
+            <div class="hero-image-container">
+                <div class="scan-line"></div> 
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Dashboard Ejecutivo MM Strategy">
+            </div>
         </section>
 
-        <section class="dashboard-grid">
-            <div class="card">
-                <div class="graph">
-                    <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        <section id="servicios" class="services">
+            <div class="section-title"><h2>Nuestros <span>Servicios</span></h2></div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="card-image"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80"></div>
+                    <div class="card-content"><h3>Análisis de Datos</h3><ul><li><i class="fas fa-check"></i> KPIs Operativos</li><li><i class="fas fa-check"></i> Reporting Directivo</li></ul></div>
                 </div>
-                <h3 style="color: #4CAF50;">Análisis Predictivo</h3>
-                <p style="font-size: 0.9rem; margin-top: 10px;">Optimización de KPIs en tiempo real.</p>
-            </div>
-
-            <div class="card">
-                <div class="graph">
-                    <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                <div class="service-card">
+                    <div class="card-image"><img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=500&q=80"></div>
+                    <div class="card-content"><h3>Visualización</h3><ul><li><i class="fas fa-check"></i> Dashboards Dinámicos</li><li><i class="fas fa-check"></i> Power BI / Tableau</li></ul></div>
                 </div>
-                <h3 style="color: #4CAF50;">Digital Twin</h3>
-                <p style="font-size: 0.9rem; margin-top: 10px;">Modelado de procesos complejos.</p>
+                <div class="service-card">
+                    <div class="card-image"><img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop"></div>
+                    <div class="card-content"><h3>Modelos Predictivos</h3><ul><li><i class="fas fa-check"></i> Machine Learning</li><li><i class="fas fa-check"></i> IA Generativa</li></ul></div>
+                </div>
+                <div class="service-card">
+                    <div class="card-image"><img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=500&q=80"></div>
+                    <div class="card-content"><h3>Estrategia ROI</h3><ul><li><i class="fas fa-check"></i> Optimización Procesos</li><li><i class="fas fa-check"></i> Retorno de Inversión</li></ul></div>
+                </div>
             </div>
         </section>
     </main>
