@@ -3,59 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MM Strategy | Dashboard de Ingeniería Industrial</title>
+    <title>MM Strategy | Dashboard Industrial</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* --- 1. VARIABLES & CORE --- */
+        /* --- VARIABLES MAESTRAS --- */
         :root {
-            --verde-primario: #2D5A27;
             --verde-brillante: #4CAF50;
-            --negro-oled: #020405;
+            --verde-obscuro: #2D5A27;
             --dorado: #b8860b;
-            --glass: rgba(255, 255, 255, 0.05);
+            --negro-fondo: #0a0a0a;
+            --texto-claro: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-        html { scroll-behavior: smooth; font-size: 15px; }
-
+        
         body {
-            background-color: var(--negro-oled);
+            background-color: var(--negro-fondo);
+            /* Fondo con rejilla técnica de ingeniería */
             background-image: 
-                radial-gradient(at 0% 0%, rgba(76, 175, 80, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(184, 134, 11, 0.1) 0px, transparent 50%),
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
-            background-attachment: fixed;
-            color: #e0e0e0;
-            overflow-x: hidden;
+                linear-gradient(rgba(76, 175, 80, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(76, 175, 80, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            color: var(--texto-claro);
+            line-height: 1.6;
         }
 
-        /* --- 2. NAVEGACIÓN SISTÉMICA --- */
+        /* --- NAVBAR --- */
         .navbar {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 8%; background: rgba(2, 4, 5, 0.9);
-            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 20px 8%; background: rgba(10, 10, 10, 0.95);
+            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(76, 175, 80, 0.2);
             backdrop-filter: blur(10px);
         }
-        .logo { font-size: 1.5rem; font-weight: 700; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: white; }
         .brand-m { color: var(--verde-brillante); }
-        nav ul { display: flex; list-style: none; gap: 25px; align-items: center; }
-        nav ul li a { text-decoration: none; color: #fff; font-weight: 500; font-size: 0.9rem; transition: 0.3s; }
-        nav ul li a:hover { color: var(--verde-brillante); text-shadow: 0 0 10px var(--verde-brillante); }
-        .btn-contacto { background: var(--verde-primario); padding: 10px 20px; border-radius: 25px; }
+        nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
+        nav ul li a { text-decoration: none; color: white; font-size: 0.85rem; font-weight: 600; transition: 0.3s; }
+        nav ul li a:hover { color: var(--verde-brillante); }
+        .btn-contacto { background: var(--verde-obscuro); padding: 8px 18px; border-radius: 20px; border: 1px solid var(--verde-brillante); }
 
-        /* --- 3. HERO (COMPUTER VISION FEEL) --- */
-        .hero { display: flex; align-items: center; padding: 80px 8%; min-height: 85vh; gap: 40px; }
+        /* --- HERO --- */
+        .hero { display: flex; align-items: center; padding: 80px 8%; min-height: 80vh; gap: 40px; }
         .hero-content { flex: 1; }
-        .status-badge {
-            background: rgba(76, 175, 80, 0.1); border: 1px solid var(--verde-brillante);
-            color: var(--verde-brillante); padding: 6px 16px; border-radius: 20px;
-            font-size: 0.75rem; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 25px;
-            letter-spacing: 1px; text-transform: uppercase;
-        }
-        .dot { width: 8px; height: 8px; background: var(--verde-brillante); border-radius: 50%; box-shadow: 0 0 10px var(--verde-brillante); animation: pulse 1.5s infinite; }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; }
+        .highlight-green { color: var(--verde-brillante); text-shadow: 0 0 10px rgba(76, 175, 80, 0.3); }
+        .cursive-gold { font-family: 'Playfair Display', serif; color: var(--dorado); font-style: italic; }
+        .hero-content p { font-size: 1.1rem; color: #ccc; margin-bottom: 30px; max-width: 500px; }
         
-        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; line-height
+        .hero-image-container { 
+            flex: 1; position: relative; border-radius: 15px; overflow: hidden; 
+            border: 1px solid var(--verde-brillante); box-shadow: 0 0 30px rgba(76, 175, 80, 0.2);
+        }
+        .hero-image-container img { width: 100%; display: block; filter: brightness(0.8); }
+        .scan-line {
+            position: absolute; width: 100%; height: 2px; background: var(--verde-brillante);
+            top: 0; box-shadow: 0 0 15px var(--verde-brillante); animation: scan 4s linear infinite;
+        }
+
+        /* --- SERVICIOS / DASHBOARD --- */
+        .services { padding: 80px 8%; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.5rem; color: white; }
+        .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(76, 175, 80, 0.2);
+            padding: 20px; border-radius: 15px; transition: 0.3s;
+        }
+        .service-card:hover { border-color: var(--verde-brillante); transform: translateY(-5px); background: rgba(76, 175, 80, 0.05); }
+
+        /* Gráficos Verdes Animados */
+        .card-graph {
+            height: 60px; display: flex; align-items: flex-end; gap: 4px; margin-bottom: 15px;
+            background: rgba(0,0,0,0.3); padding: 8px; border-radius: 8px;
+        }
+        .bar {
+            flex: 1; background: var(--verde-brillante); border-radius: 2px;
+            animation: grow 2s ease-in-out infinite alternate;
+        }
+        .bar:nth-child(2) { animation-delay: 0.4s; }
+        .bar:nth-child(3) { animation-delay: 0.2s; }
+        .bar:nth-child(4) { animation-delay: 0.6s; }
+
+        .service-card h3 { color: var(--verde-brillante); font-size: 1rem; margin-bottom: 10px; }
+        .service-card ul { list-style: none; font-size: 0.8rem; color: #bbb; }
+        .service-card li { margin-bottom: 5px; }
+
+        /* --- ANIMACIONES --- */
+        @keyframes scan { 0% { top: 0%; } 100
