@@ -21,20 +21,12 @@ html {
 }
 
 body {
-    background-color: #f4f4f4; /* Gris base profesional */
+    background-color: #f8f9fa;
     background-image: 
-        /* Trazo de pincel 1: Superior Izquierda */
-        radial-gradient(at 15% 15%, rgba(180, 180, 180, 0.2) 0px, transparent 40%),
-        /* Trazo de pincel 2: Centro Derecha */
-        radial-gradient(at 85% 40%, rgba(160, 160, 160, 0.15) 0px, transparent 50%),
-        /* Trazo de pincel 3: Inferior Izquierda */
-        radial-gradient(at 10% 80%, rgba(190, 190, 190, 0.25) 0px, transparent 45%),
-        /* Textura sutil para dar sensación de lienzo/pincelada */
-        url('https://www.transparenttextures.com/patterns/brushed-alum.png');
-    background-attachment: fixed; /* El fondo no se mueve, dando profundidad */
-    background-size: cover;
-    color: var(--negro-cuerpo);
-    line-height: 1.6;
+        linear-gradient(rgba(200, 200, 200, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200, 200, 200, 0.1) 1px, transparent 1px);
+    background-size: 30px 30px; /* Tamaño de la cuadrícula técnica */
+    background-attachment: fixed;
 }
 
 /* Forzamos que las secciones dejen ver este nuevo fondo */
