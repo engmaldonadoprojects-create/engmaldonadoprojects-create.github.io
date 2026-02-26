@@ -1,13 +1,9 @@
 :root {
-    --primary-dark: #0A1929;
-    --primary-medium: #1A2B3E;
-    --accent-blue: #2A6DF4;
-    --accent-gold: #FFB347;
-    --light-gray: #F5F7FA;
-    --white: #FFFFFF;
-    --text-dark: #333333;
-    --text-light: #666666;
-    --shadow: 0 10px 30px rgba(0,0,0,0.1);
+    --primary: #0A2472;      /* Azul profundo */
+    --secondary: #E6B422;    /* Dorado elegante */
+    --accent: #5E7CE2;       /* Azul claro */
+    --background: #F5F7FA;   /* Gris suave */
+    --text: #333333;         /* Texto oscuro */
 }
 
 * {
