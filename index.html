@@ -3,177 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MM Strategy | Consultoría Industrial</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <title>DataSolve | Consultoría en Análisis Industrial</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <style>
-        /* --- VARIABLES MAESTRAS --- */
-        :root {
-            --verde-brillante: #4CAF50;
-            --verde-obscuro: #2D5A27;
-            --dorado: #b8860b;
-            --negro-oled: #020405;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-        html { scroll-behavior: smooth; font-size: 15px; }
-
-        /* --- FONDO DE IMPACTO (Digital Twin Style) --- */
-        body {
-            background-color: var(--negro-oled);
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(76, 175, 80, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(184, 134, 11, 0.1) 0px, transparent 50%),
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
-            background-attachment: fixed;
-            color: #e0e0e0;
-        }
-
-        /* --- NAVEGACIÓN EJECUTIVA --- */
-        .navbar {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 8%; background: rgba(2, 4, 5, 0.9);
-            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-        }
-        .logo { font-size: 1.5rem; font-weight: 700; }
-        .brand-m { color: var(--verde-brillante); }
-        .brand-text { color: #fff; }
-        nav ul { display: flex; list-style: none; gap: 25px; align-items: center; }
-        nav ul li a { text-decoration: none; color: #fff; font-weight: 500; transition: 0.3s; }
-        nav ul li a:hover { color: var(--verde-brillante); }
-        .btn-contacto { background: var(--verde-obscuro); padding: 10px 20px; border-radius: 25px; }
-
-        /* --- HERO SECTION & COMPONENTES DASHBOARD --- */
-        .hero { display: flex; align-items: center; padding: 100px 8%; min-height: 80vh; gap: 40px; }
-        .hero-content { flex: 1; }
-        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; color: #fff; }
-        .highlight-green { color: var(--verde-brillante); }
-        .cursive-gold { font-family: 'Playfair Display', serif; color: var(--dorado); font-style: italic; }
-        .hero-content p { font-size: 1.2rem; color: #aaa; margin-bottom: 30px; }
-        
-        .status-badge {
-            background: rgba(76, 175, 80, 0.1);
-            border: 1px solid var(--verde-brillante);
-            color: var(--verde-brillante);
-            padding: 5px 15px; border-radius: 20px;
-            font-size: 0.8rem; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px;
-        }
-        .dot {
-            width: 8px; height: 8px; background: var(--verde-brillante);
-            border-radius: 50%; box-shadow: 0 0 10px var(--verde-brillante);
-            animation: pulse 1.5s infinite;
-        }
-
-        .hero-btns { display: flex; align-items: center; }
-        .cta-main {
-            display: inline-block; background: var(--verde-obscuro); color: white;
-            padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 700;
-            transition: 0.3s; box-shadow: 0 0 20px rgba(76, 175, 80, 0.2);
-        }
-        .cta-main:hover { transform: scale(1.05); background: var(--verde-brillante); }
-        .cta-secondary {
-            margin-left: 20px; color: #fff; text-decoration: none;
-            border-bottom: 1px dashed var(--verde-brillante); font-size: 0.9rem; transition: 0.3s;
-        }
-
-        .hero-image-container {
-            position: relative; flex: 1; overflow: hidden;
-            border-radius: 20px; border: 1px solid rgba(76, 175, 80, 0.3);
-            box-shadow: 0 0 50px rgba(0,0,0,0.5);
-        }
-        .scan-line {
-            position: absolute; width: 100%; height: 2px;
-            background: var(--verde-brillante);
-            box-shadow: 0 0 15px var(--verde-brillante);
-            top: 0; z-index: 2; animation: scan 3s linear infinite;
-        }
-        .hero-image-container img { width: 100%; display: block; }
-
-        /* --- SERVICIOS --- */
-        .services { padding: 80px 8%; }
-        .section-title { text-align: center; margin-bottom: 60px; }
-        .section-title h2 { font-size: 3rem; background: linear-gradient(to bottom, #fff, #888); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .services-grid { 
-            display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; 
-            transform: scale(0.95); transform-origin: top center;
-        }
-        .service-card {
-            background: var(--glass-bg); border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 20px; overflow: hidden; backdrop-filter: blur(15px);
-            transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-        .service-card:hover { transform: translateY(-15px); border-color: var(--verde-brillante); box-shadow: 0 0 30px rgba(76, 175, 80, 0.2); }
-        .card-image { height: 150px; overflow: hidden; }
-        .card-image img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
-        .card-content { padding: 20px; }
-        .card-content h3 { color: var(--verde-brillante); margin-bottom: 15px; font-size: 1.1rem; }
-        .card-content ul { list-style: none; font-size: 0.85rem; color: #ccc; }
-        .card-content li { margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
-        .card-content i { color: var(--verde-brillante); }
-
-        /* --- ANIMACIONES --- */
-        @keyframes scan { 0% { top: 0%; } 100% { top: 100%; } }
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
-
-        @media (max-width: 1024px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 768px) { .hero { flex-direction: column; text-align: center; } .services-grid { grid-template-columns: 1fr; } .hero-btns { justify-content: center; } }
-    </style>
 </head>
 <body>
-
-    <nav class="navbar">
-        <div class="logo"><span class="brand-m">MM</span><span class="brand-text">Strategy</span></div>
-        <ul>
-            <li><a href="#inicio">System.Start()</a></li>
-            <li><a href="#servicios">Data.Services()</a></li>
-            <li><a href="#metodologia">Process.Flow()</a></li>
-            <li><a href="#contacto" class="btn-contacto">Contact.Connect()</a></li>
-        </ul>
-    </nav>
-
-    <main>
-        <section class="hero" id="inicio">
-            <div class="hero-content">
-                <div class="status-badge"><span class="dot"></span> System Active: 2026 Strategy</div>
-                <h1>Ingeniería de <span class="highlight-green">Datos</span> & <br><span class="cursive-gold">Resiliencia</span> Industrial</h1>
-                <p>Modelado de Gemelos Digitales (Digital Twins) y optimización predictiva para la toma de decisiones ejecutivas.</p>
-                <div class="hero-btns">
-                    <a href="#contacto" class="cta-main">Desplegar Análisis</a>
-                    <a href="#servicios" class="cta-secondary">Ver Métricas</a>
-                </div>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="images/logo.svg" alt="DataSolve">
+                <span>DataSolve</span>
             </div>
-            <div class="hero-image-container">
-                <div class="scan-line"></div> 
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Dashboard Ejecutivo MM Strategy">
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="casos-exito.html">Casos de Éxito</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-        </section>
+        </nav>
+    </header>
 
-        <section id="servicios" class="services">
-            <div class="section-title"><h2>Nuestros <span>Servicios</span></h2></div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="card-image"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80"></div>
-                    <div class="card-content"><h3>Análisis de Datos</h3><ul><li><i class="fas fa-check"></i> KPIs Operativos</li><li><i class="fas fa-check"></i> Reporting Directivo</li></ul></div>
-                </div>
-                <div class="service-card">
-                    <div class="card-image"><img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=500&q=80"></div>
-                    <div class="card-content"><h3>Visualización</h3><ul><li><i class="fas fa-check"></i> Dashboards Dinámicos</li><li><i class="fas fa-check"></i> Power BI / Tableau</li></ul></div>
-                </div>
-                <div class="service-card">
-                    <div class="card-image"><img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop"></div>
-                    <div class="card-content"><h3>Modelos Predictivos</h3><ul><li><i class="fas fa-check"></i> Machine Learning</li><li><i class="fas fa-check"></i> IA Generativa</li></ul></div>
-                </div>
-                <div class="service-card">
-                    <div class="card-image"><img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=500&q=80"></div>
-                    <div class="card-content"><h3>Estrategia ROI</h3><ul><li><i class="fas fa-check"></i> Optimización Procesos</li><li><i class="fas fa-check"></i> Retorno de Inversión</li></ul></div>
-                </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Transformamos datos en <span class="highlight">decisiones estratégicas</span></h1>
+            <p>Consultoría especializada en análisis de datos para optimizar procesos industriales y maximizar resultados.</p>
+            <div class="cta-buttons">
+                <a href="contacto.html" class="btn btn-primary">Agendar consultoría</a>
+                <a href="servicios.html" class="btn btn-secondary">Ver servicios</a>
             </div>
-        </section>
-    </main>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-number">150+</span>
+                <span class="stat-label">Proyectos exitosos</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">98%</span>
+                <span class="stat-label">Clientes satisfechos</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">15+</span>
+                <span class="stat-label">Años de experiencia</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Destacados -->
+    <section class="servicios">
+        <h2>Soluciones a medida para tu industria</h2>
+        <div class="servicios-grid">
+            <div class="servicio-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Análisis Predictivo</h3>
+                <p>Anticipamos tendencias y comportamientos para optimizar tu producción.</p>
+                <a href="servicios.html#predictivo" class="card-link">Saber más →</a>
+            </div>
+            <div class="servicio-card">
+                <i class="fas fa-cogs"></i>
+                <h3>Optimización de Procesos</h3>
+                <p>Identificamos cuellos de botella y maximizamos la eficiencia operativa.</p>
+                <a href="servicios.html#optimizacion" class="card-link">Saber más →</a>
+            </div>
+            <div class="servicio-card">
+                <i class="fas fa-robot"></i>
+                <h3>Automatización Industrial</h3>
+                <p>Implementamos soluciones basadas en datos para automatizar decisiones.</p>
+                <a href="servicios.html#automatizacion" class="card-link">Saber más →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Interactivo -->
+    <section class="demo">
+        <h2>Visualiza el poder de los datos</h2>
+        <div class="demo-container">
+            <div class="demo-info">
+                <h3>Dashboard interactivo en tiempo real</h3>
+                <p>Así es como ayudamos a nuestros clientes a visualizar KPIs críticos y tomar decisiones informadas al instante.</p>
+                <ul class="demo-features">
+                    <li><i class="fas fa-check-circle"></i> Monitoreo en tiempo real</li>
+                    <li><i class="fas fa-check-circle"></i> Alertas inteligentes</li>
+                    <li><i class="fas fa-check-circle"></i> Reportes automatizados</li>
+                </ul>
+            </div>
+            <div class="demo-graph">
+                <!-- Aquí puedes integrar una visualización simple con Chart.js -->
+                <canvas id="demoChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h4>DataSolve</h4>
+                <p>Transformando la industria a través de datos inteligentes.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Enlaces rápidos</h4>
+                <ul>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="casos-exito.html">Casos de éxito</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-envelope"></i> info@datasolve.com</p>
+                <p><i class="fas fa-phone"></i> +34 123 456 789</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 DataSolve. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
