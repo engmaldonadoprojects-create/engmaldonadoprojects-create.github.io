@@ -1,9 +1,13 @@
 :root {
-    --primary: #0A2472;      /* Azul profundo */
-    --secondary: #E6B422;    /* Dorado elegante */
-    --accent: #5E7CE2;       /* Azul claro */
-    --background: #F5F7FA;   /* Gris suave */
-    --text: #333333;         /* Texto oscuro */
+    --primary-dark: #0A2472;      /* Tu azul profundo */
+    --primary-medium: #1A2B3E;    /* Mantenemos este o puedes ajustarlo */
+    --accent-blue: #5E7CE2;       /* Tu azul claro */
+    --accent-gold: #E6B422;       /* Tu dorado elegante */
+    --light-gray: #F5F7FA;        /* Tu gris suave */
+    --white: #FFFFFF;
+    --text-dark: #333333;          /* Tu texto oscuro */
+    --text-light: #666666;
+    --shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 * {
