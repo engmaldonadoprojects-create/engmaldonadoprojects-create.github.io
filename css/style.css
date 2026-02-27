@@ -1,11 +1,11 @@
 :root {
-    --primary-dark: #0A2472;      /* Tu azul profundo */
-    --primary-medium: #1A2B3E;    /* Mantenemos este o puedes ajustarlo */
-    --accent-blue: #5E7CE2;       /* Tu azul claro */
-    --accent-gold: #E6B422;       /* Tu dorado elegante */
-    --light-gray: #F5F7FA;        /* Tu gris suave */
+    --primary-dark: #0A2472;      /* Azul profundo */
+    --primary-medium: #1A2B3E;    
+    --accent-blue: #5E7CE2;       /* Azul claro */
+    --accent-gold: #E6B422;       /* Dorado elegante */
+    --light-gray: #F5F7FA;        /* Gris suave */
     --white: #FFFFFF;
-    --text-dark: #333333;          /* Tu texto oscuro */
+    --text-dark: #333333;          /* Texto oscuro */
     --text-light: #666666;
     --shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
@@ -81,26 +81,28 @@ h1, h2, h3, h4 {
     color: var(--accent-blue);
 }
 
-/* Hero Section */
+/* Hero Section - VERSIÓN PROFESIONAL 80vh */
 .hero {
     background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-medium) 100%);
     color: var(--white);
-    padding: 8rem 5% 4rem;
-    min-height: 100vh;
+    padding: 7rem 5% 3rem;
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
 }
 
 .hero-content {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     text-align: center;
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 3.2rem;
     margin-bottom: 1.5rem;
+    line-height: 1.2;
 }
 
 .hero .highlight {
@@ -108,15 +110,19 @@ h1, h2, h3, h4 {
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin-bottom: 2rem;
-    opacity: 0.9;
+    opacity: 0.95;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cta-buttons {
     display: flex;
-    gap: 1rem;
+    gap: 1.2rem;
     justify-content: center;
+    margin-bottom: 2rem;
 }
 
 .btn {
@@ -125,6 +131,7 @@ h1, h2, h3, h4 {
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s;
+    display: inline-block;
 }
 
 .btn-primary {
@@ -152,7 +159,9 @@ h1, h2, h3, h4 {
     display: flex;
     justify-content: center;
     gap: 4rem;
-    margin-top: 4rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.15);
 }
 
 .stat-item {
@@ -169,6 +178,8 @@ h1, h2, h3, h4 {
 .stat-label {
     font-size: 1rem;
     opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 /* Servicios Section */
@@ -243,6 +254,12 @@ h1, h2, h3, h4 {
     margin: 0 auto;
 }
 
+.demo-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-dark);
+}
+
 .demo-features {
     list-style: none;
     margin-top: 2rem;
@@ -250,11 +267,22 @@ h1, h2, h3, h4 {
 
 .demo-features li {
     margin-bottom: 1rem;
+    font-size: 1.1rem;
 }
 
 .demo-features i {
     color: var(--accent-blue);
     margin-right: 0.5rem;
+}
+
+.demo-graph {
+    background: var(--light-gray);
+    border-radius: 10px;
+    padding: 2rem;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Footer */
@@ -272,6 +300,22 @@ h1, h2, h3, h4 {
     margin: 0 auto;
 }
 
+.footer-info h4,
+.footer-links h4,
+.footer-contact h4 {
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
 .footer a {
     color: var(--white);
     text-decoration: none;
@@ -283,11 +327,23 @@ h1, h2, h3, h4 {
     opacity: 1;
 }
 
+.footer-contact p {
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+.footer-contact i {
+    margin-right: 0.5rem;
+    color: var(--accent-gold);
+}
+
 .footer-bottom {
     text-align: center;
     margin-top: 3rem;
     padding-top: 1rem;
     border-top: 1px solid rgba(255,255,255,0.1);
+    opacity: 0.7;
+    font-size: 0.9rem;
 }
 
 /* Responsive */
@@ -298,18 +354,80 @@ h1, h2, h3, h4 {
     
     .hamburger {
         display: block;
+        cursor: pointer;
+    }
+    
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: var(--primary-dark);
+        margin: 5px 0;
+        transition: all 0.3s;
+    }
+    
+    .hero {
+        min-height: 70vh;
+        padding: 6rem 5% 2rem;
     }
     
     .hero h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
     }
     
     .hero-stats {
         flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
         gap: 1rem;
     }
     
+    .servicios h2,
+    .demo h2 {
+        font-size: 2rem;
+    }
+    
     .demo-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .footer-content {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        min-height: 65vh;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .servicios-grid {
         grid-template-columns: 1fr;
     }
 }
