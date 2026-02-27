@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios | DataSolve - Consultoría Industrial</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Estilos adicionales solo para página de servicios */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-medium) 100%);
+            color: var(--white);
+            padding: 8rem 5% 3rem;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .servicio-detalle {
+            padding: 4rem 5%;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .servicio-detalle:last-child {
+            border-bottom: none;
+        }
+        
+        .servicio-detalle-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .servicio-detalle-container.reverse {
+            direction: rtl;
+        }
+        
+        .servicio-detalle-container.reverse .servicio-info {
+            direction: ltr;
+        }
+        
+        .servicio-info h2 {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+        }
+        
+        .servicio-info h2 i {
+            color: var(--accent-blue);
+            margin-right: 0.5rem;
+        }
+        
+        .servicio-descripcion {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .servicio-caracteristicas {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .servicio-caracteristicas li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .servicio-caracteristicas i {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+        }
+        
+        .servicio-imagen {
+            background: var(--light-gray);
+            border-radius: 10px;
+            padding: 2rem;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+        }
+        
+        .servicio-imagen img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        
+        .servicio-imagen .placeholder {
+            color: var(--text-light);
+            font-style: italic;
+        }
+        
+        .btn-contacto {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--accent-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-contacto:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-contacto i {
+            margin-right: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .servicio-detalle-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .servicio-detalle-container.reverse {
+                direction: ltr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="images/logo.svg" alt="DataSolve">
+                <span>DataSolve</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html" class="active">Servicios</a></li>
+                <li><a href="casos-exito.html">Casos de Éxito</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Nuestros Servicios</h1>
+        <p>Soluciones integrales para la industria: desde el análisis de datos hasta el diseño industrial y la formación de equipos</p>
+    </section>
+
+    <!-- Servicio 1: Análisis de Datos -->
+    <section class="servicio-detalle" id="analisis-datos">
+        <div class="servicio-detalle-container">
+            <div class="servicio-info">
+                <h2><i class="fas fa-chart-line"></i> Análisis de Datos Industriales</h2>
+                <div class="servicio-descripcion">
+                    <p>Transformamos tus datos en información accionable para la toma de decisiones estratégicas. Implementamos dashboards en tiempo real y modelos predictivos que anticipan fallos y optimizan la producción.</p>
+                </div>
+                <ul class="servicio-caracteristicas">
+                    <li><i class="fas fa-check-circle"></i> Dashboards interactivos con KPIs críticos</li>
+                    <li><i class="fas fa-check-circle"></i> Mantenimiento predictivo (anticipación de fallos)</li>
+                    <li><i class="fas fa-check-circle"></i> Análisis de eficiencia operativa en tiempo real</li>
+                    <li><i class="fas fa-check-circle"></i> Detección de patrones y anomalías</li>
+                    <li><i class="fas fa-check-circle"></i> Reportes automatizados personalizados</li>
+                </ul>
+                <a href="contacto.html" class="btn-contacto"><i class="fas fa-envelope"></i> Solicitar información</a>
+            </div>
+            <div class="servicio-imagen">
+                <div class="placeholder">
+                    <i class="fas fa-chart-line" style="font-size: 4rem; color: var(--accent-blue);"></i>
+                    <p>[Dashboard en tiempo real]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicio 2: Optimización de Procesos -->
+    <section class="servicio-detalle" id="optimizacion">
+        <div class="servicio-detalle-container reverse">
+            <div class="servicio-info">
+                <h2><i class="fas fa-cogs"></i> Optimización de Procesos</h2>
+                <div class="servicio-descripcion">
+                    <p>Identificamos cuellos de botella y oportunidades de mejora en tus líneas productivas. Implementamos soluciones que aumentan la eficiencia, reducen tiempos muertos y maximizan la capacidad instalada.</p>
+                </div>
+                <ul class="servicio-caracteristicas">
+                    <li><i class="fas fa-check-circle"></i> Mapeo y análisis de flujos productivos</li>
+                    <li><i class="fas fa-check-circle"></i> Identificación de cuellos de botella</li>
+                    <li><i class="fas fa-check-circle"></i> Reducción de tiempos de ciclo</li>
+                    <li><i class="fas fa-check-circle"></i> Optimización de recursos y materiales</li>
+                    <li><i class="fas fa-check-circle"></i> Control estadístico de procesos (SPC)</li>
+                </ul>
+                <a href="contacto.html" class="btn-contacto"><i class="fas fa-envelope"></i> Solicitar información</a>
+            </div>
+            <div class="servicio-imagen">
+                <div class="placeholder">
+                    <i class="fas fa-cogs" style="font-size: 4rem; color: var(--accent-blue);"></i>
+                    <p>[Diagrama de flujo optimizado]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicio 3: Diseño Industrial -->
+    <section class="servicio-detalle" id="diseno-industrial">
+        <div class="servicio-detalle-container">
+            <div class="servicio-info">
+                <h2><i class="fas fa-cube"></i> Diseño Industrial (AutoCAD)</h2>
+                <div class="servicio-descripcion">
+                    <p>Diseñamos y modelamos equipos industriales a medida: tolvas, estructuras, sistemas de transporte y componentes. Planos detallados en 2D y 3D listos para fabricación.</p>
+                </div>
+                <ul class="servicio-caracteristicas">
+                    <li><i class="fas fa-check-circle"></i> Elaboración de planos 2D y 3D</li>
+                    <li><i class="fas fa-check-circle"></i> Modelado técnico y representación digital</li>
+                    <li><i class="fas fa-check-circle"></i> Normalización bajo estándares técnicos</li>
+                    <li><i class="fas fa-check-circle"></i> Diseño vectorial profesional</li>
+                    <li><i class="fas fa-check-circle"></i> Diseño de señalética técnica e industrial</li>
+                </ul>
+                <a href="contacto.html" class="btn-contacto"><i class="fas fa-envelope"></i> Solicitar información</a>
+            </div>
+            <div class="servicio-imagen">
+                <div class="placeholder">
+                    <i class="fas fa-cube" style="font-size: 4rem; color: var(--accent-blue);"></i>
+                    <p>[Modelo 3D de tolva]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicio 4: Formación de Equipos -->
+    <section class="servicio-detalle" id="formacion">
+        <div class="servicio-detalle-container reverse">
+            <div class="servicio-info">
+                <h2><i class="fas fa-users"></i> Formación de Equipos</h2>
+                <div class="servicio-descripcion">
+                    <p>Capacitación práctica in situ para operarios y técnicos. Formamos a tu equipo en manejo de equipos, interpretación de planos, seguridad industrial y optimización de procesos.</p>
+                </div>
+                <ul class="servicio-caracteristicas">
+                    <li><i class="fas fa-check-circle"></i> Capacitación en planta (formación práctica)</li>
+                    <li><i class="fas fa-check-circle"></i> Manejo de equipos industriales</li>
+                    <li><i class="fas fa-check-circle"></i> Interpretación de planos y especificaciones</li>
+                    <li><i class="fas fa-check-circle"></i> Seguridad industrial y prevención</li>
+                    <li><i class="fas fa-check-circle"></i> Talleres de optimización de procesos</li>
+                </ul>
+                <a href="contacto.html" class="btn-contacto"><i class="fas fa-envelope"></i> Solicitar información</a>
+            </div>
+            <div class="servicio-imagen">
+                <div class="placeholder">
+                    <i class="fas fa-users" style="font-size: 4rem; color: var(--accent-blue);"></i>
+                    <p>[Capacitación en planta]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicio 5: Soluciones Industriales -->
+    <section class="servicio-detalle" id="soluciones">
+        <div class="servicio-detalle-container">
+            <div class="servicio-info">
+                <h2><i class="fas fa-chart-pie"></i> Soluciones a Problemas Industriales</h2>
+                <div class="servicio-descripcion">
+                    <p>Diagnosticamos y resolvemos problemas complejos en terreno. Análisis de causa raíz, implementación de mejoras y asesoría técnica especializada para tus desafíos productivos.</p>
+                </div>
+                <ul class="servicio-caracteristicas">
+                    <li><i class="fas fa-check-circle"></i> Diagnóstico de fallos recurrentes</li>
+                    <li><i class="fas fa-check-circle"></i> Análisis de causa raíz (RCA)</li>
+                    <li><i class="fas fa-check-circle"></i> Implementación de mejoras correctivas</li>
+                    <li><i class="fas fa-check-circle"></i> Asesoría técnica en terreno</li>
+                    <li><i class="fas fa-check-circle"></i> Auditorías de procesos industriales</li>
+                </ul>
+                <a href="contacto.html" class="btn-contacto"><i class="fas fa-envelope"></i> Solicitar información</a>
+            </div>
+            <div class="servicio-imagen">
+                <div class="placeholder">
+                    <i class="fas fa-chart-pie" style="font-size: 4rem; color: var(--accent-blue);"></i>
+                    <p>[Diagnóstico en planta]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section style="background: var(--light-gray); padding: 3rem 5%; text-align: center;">
+        <h2 style="font-size: 2rem; color: var(--primary-dark); margin-bottom: 1rem;">¿No encuentras lo que buscas?</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem;">Contáctanos y diseñamos una solución a la medida de tu necesidad</p>
+        <a href="contacto.html" class="btn-primary" style="padding: 1rem 3rem;">Solicitar asesoría personalizada</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h4>DataSolve</h4>
+                <p>Transformando la industria a través de datos inteligentes, diseño preciso y formación especializada.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Enlaces rápidos</h4>
+                <ul>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="casos-exito.html">Casos de éxito</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-envelope"></i> info@datasolve.com</p>
+                <p><i class="fas fa-phone"></i> +34 123 456 789</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 DataSolve. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
