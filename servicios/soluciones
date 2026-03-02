@@ -1,1 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soluciones Industriales | DataSolve</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-medium) 100%);
+            color: var(--white);
+            padding: 8rem 5% 3rem;
+            text-align: center;
+        }
+        .servicio-contenido {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+        }
+        .servicio-icono {
+            font-size: 4rem;
+            color: var(--accent-blue);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .btn-volver {
+            display: inline-block;
+            margin-top: 2rem;
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 250px;
+            box-shadow: var(--shadow);
+            border-radius: 5px;
+            z-index: 1;
+            top: 100%;
+            left: 0;
+            padding: 0.5rem 0;
+        }
+        .dropdown-content li {
+            list-style: none;
+        }
+        .dropdown-content a {
+            color: var(--text-dark);
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            font-size: 0.95rem;
+            border-left: 3px solid transparent;
+        }
+        .dropdown-content a:hover {
+            background-color: var(--light-gray);
+            border-left: 3px solid var(--accent-blue);
+            color: var(--accent-blue);
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown:hover .dropbtn {
+            color: var(--accent-blue);
+        }
+        @media (max-width: 768px) {
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                padding-left: 1rem;
+            }
+            .dropdown-content a {
+                padding: 0.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../images/logo.svg" alt="DataSolve">
+                <span>DataSolve</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Inicio</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Servicios ▾</a>
+                    <ul class="dropdown-content">
+                        <li><a href="analisis-datos.html">Análisis de Datos</a></li>
+                        <li><a href="optimizacion.html">Optimización de Procesos</a></li>
+                        <li><a href="diseno-industrial.html">Diseño Industrial</a></li>
+                        <li><a href="formacion.html">Formación de Equipos</a></li>
+                        <li><a href="soluciones.html" class="active">Soluciones Industriales</a></li>
+                    </ul>
+                </li>
+                <li><a href="../casos-exito.html">Casos de Éxito</a></li>
+                <li><a href="../contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <section class="page-header">
+        <h1>Soluciones Industriales</h1>
+        <p>Diagnóstico y resolución de problemas complejos en terreno</p>
+    </section>
+
+    <section class="servicio-contenido">
+        <div class="servicio-icono">
+            <i class="fas fa-chart-pie"></i>
+        </div>
+        <h2>Descripción del Servicio</h2>
+        <p>Diagnosticamos y resolvemos problemas complejos en terreno. Análisis de causa raíz, implementación de mejoras y asesoría técnica especializada para tus desafíos productivos.</p>
+        
+        <h3>Características:</h3>
+        <ul>
+            <li>Diagnóstico de fallos recurrentes</li>
+            <li>Análisis de causa raíz (RCA)</li>
+            <li>Implementación de mejoras correctivas</li>
+            <li>Asesoría técnica en terreno</li>
+            <li>Auditorías de procesos industriales</li>
+            <li>Acompañamiento en la implementación de soluciones</li>
+        </ul>
+        
+        <a href="../contacto.html" class="btn btn-primary">Solicitar información</a>
+        <br>
+        <a href="../index.html" class="btn-volver">← Volver al inicio</a>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h4>DataSolve</h4>
+                <p>Transformando la industria a través de datos inteligentes, diseño preciso y formación especializada.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Enlaces rápidos</h4>
+                <ul>
+                    <li><a href="../servicios/analisis-datos.html">Servicios</a></li>
+                    <li><a href="../casos-exito.html">Casos de éxito</a></li>
+                    <li><a href="../contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-envelope"></i> info@datasolve.com</p>
+                <p><i class="fas fa-phone"></i> +34 123 456 789</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 DataSolve. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
