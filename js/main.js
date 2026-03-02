@@ -8,7 +8,7 @@ hamburger.addEventListener('click', () => {
 });
 
 // Gráfico de demo con Chart.js
-const ctx = document.getElementById('demoChart').getContext('ctx');
+const ctx = document.getElementById('demoChart').getContext('2d');  // ← CORREGIDO
 new Chart(ctx, {
     type: 'line',
     data: {
